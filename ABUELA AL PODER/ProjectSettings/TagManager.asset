@@ -9,6 +9,7 @@ TagManager:
   - SubSilla
   - Lampara
   - Puerta1
+  - Manguera
   layers:
   - Default
   - TransparentFX
