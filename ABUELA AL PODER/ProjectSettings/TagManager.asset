@@ -52,3 +52,6 @@ TagManager:
   - name: Player
     uniqueID: 2662209105
     locked: 0
+  - name: Sombra
+    uniqueID: 1374223315
+    locked: 0
