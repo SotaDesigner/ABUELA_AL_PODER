@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D _rb;
+    float ejeX;
+    float ejey;
+
+    public float velocidadMovimiento = 5;
+
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
