@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class Bateria : MonoBehaviour
 {
-    bool bateriaConectada = false;
-    bool cableEmpalmado = false;
+    public Sprite bateriaDesconectada;
+    public Sprite bateriaConectadaSpr;
+    private SpriteRenderer bateria;
+    public bool bateriaConectada = false;
+    public Collider2D colliderBateria;
 
-    public Collider2D bateria;
-    public Collider2D cable;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        bateria.sprite = bateriaDesconectada;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(bateriaConectada)
+        {
+            bateria.sprite = bateriaConectadaSpr;
+        } else if(!bateriaConectada)
+        {
+            bateria.sprite = bateriaDesconectada;
+        }
     }
-    private void OnMouseDown()
+    void OnMouseDown()
     {
-        if(bateria)
+        Debug.Log("Bateria conectada");
+        colliderBateria.enabled = false;
+        bateriaConectada = true;       
     }
 }

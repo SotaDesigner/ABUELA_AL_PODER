@@ -29,12 +29,12 @@ public class GameController : MonoBehaviour
     public void RestaVida()
     {
         if (vidas > 0) vidas--;
-
+        Debug.Log("Has perdido una vida");
         if(vidas<1)
         {
             Debug.Log("Anda que morir en este juego... Verguenza me daria :D");
             SceneManager.LoadScene(0);
         }
-
+        GameObject.Find("Bateria").GetComponent<Bateria>().colliderBateria.enabled = false;
     }
 }
