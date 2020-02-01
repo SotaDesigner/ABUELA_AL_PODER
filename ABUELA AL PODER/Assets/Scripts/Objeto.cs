@@ -29,9 +29,34 @@ public class Objeto : MonoBehaviour
         {
             SoltarObjeto();
         }
-        if(Input.GetKeyDown(KeyCode.Q))
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.CompareTag("Player"))
         {
-            Interacturar();
+            _playerCerca = true;
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.transform.CompareTag("Player"))
+        {
+            _playerCerca = false;
+        }
+    }
+    void CogerObjeto()
+    {
+        transform.parent = _mano;
+
+        transform.localPosition = Vector3.zero;
+        transform.rotation = _player.rotation;
+
+        _manoOcupada = true;
+    }
+    void SoltarObjeto()
+    {
+        transform.parent = null;
+
+        _manoOcupada = false;
     }
 }
