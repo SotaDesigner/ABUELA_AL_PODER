@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: fdf95ab73915c1841940837ada19607b
+guid: a272dc70cd424584988dfb4488846a9f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Silla0002_0
+    21300000: Silla0003_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -85,21 +85,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Silla0002_0
+      name: Silla0003_0
       rect:
         serializedVersion: 2
-        x: 393
-        y: 56
-        width: 403
-        height: 256
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 721
+        y: 151
+        width: 236
+        height: 342
+      alignment: 9
+      pivot: {x: 0.1213291, y: -0.00250958}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2473599be7973049ae13efa66aa159a
+      spriteID: a99285c340a03df4d85175b1d422efa1
       vertices: []
       indices: 
       edges: []
@@ -107,7 +107,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 60afad8e7dbdc1647aa8b616d62b1b88
+    spriteID: 0b3999c0f6bfd594493a0134666c6fd9
     vertices: []
     indices: 
     edges: []
