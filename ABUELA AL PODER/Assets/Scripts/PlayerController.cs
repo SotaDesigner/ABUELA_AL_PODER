@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
         //Me registra las teclas para el movimiento
         _ejeX = Input.GetAxis("Horizontal");
         _rb.velocity = new Vector2(_ejeX * velocidadMovimiento, _rb.velocity.y);
+
+        GestionAnimaciones();
     }
     
     void GestionAnimaciones()
