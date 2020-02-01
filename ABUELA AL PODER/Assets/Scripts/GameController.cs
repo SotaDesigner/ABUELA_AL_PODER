@@ -37,4 +37,17 @@ public class GameController : MonoBehaviour
         }
         GameObject.Find("Bateria").GetComponent<Bateria>().colliderBateria.enabled = false;
     }
+    public void NextLevel1()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void NextLevel2()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void NextLevel3()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

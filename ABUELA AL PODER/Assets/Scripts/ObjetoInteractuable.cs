@@ -43,7 +43,5 @@ public class ObjetoInteractuable : MonoBehaviour
         _sr.sprite = cambio;
         objetoEscondido.enabled = true;
         objetoEscondidoCol.enabled = true;
-        //_go.SpriteRenderer = enabled;
-        //_go.collider = isActiveAndEnabled;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Objeto : MonoBehaviour
 {
     bool _playerCerca = false;
-    bool _manoOcupada = false;
+    public bool manoOcupada = false;
     bool _posibleInteractuar = false;
 
     Transform _player;
@@ -21,11 +21,11 @@ public class Objeto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_playerCerca && !_manoOcupada && Input.GetKeyDown(KeyCode.E))
+        if(_playerCerca && !manoOcupada && Input.GetKeyDown(KeyCode.E))
         {
             CogerObjeto();
         }
-        else if(_manoOcupada&&Input.GetKeyDown(KeyCode.E))
+        else if(manoOcupada&&Input.GetKeyDown(KeyCode.E))
         {
             SoltarObjeto();
         }
@@ -51,12 +51,12 @@ public class Objeto : MonoBehaviour
         transform.localPosition = Vector3.zero;
         transform.rotation = _player.rotation;
 
-        _manoOcupada = true;
+        manoOcupada = true;
     }
     void SoltarObjeto()
     {
         transform.parent = null;
 
-        _manoOcupada = false;
+        manoOcupada = false;
     }
 }

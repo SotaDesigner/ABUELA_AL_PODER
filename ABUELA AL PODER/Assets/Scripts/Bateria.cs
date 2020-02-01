@@ -12,22 +12,22 @@ public class Bateria : MonoBehaviour
 
     private void Start()
     {
-        bateria.sprite = bateriaDesconectada;
+        //bateria.sprite = bateriaDesconectada;
     }
     private void Update()
     {
-        if(bateriaConectada)
+        //if(bateriaConectada)
         {
-            bateria.sprite = bateriaConectadaSpr;
-        } else if(!bateriaConectada)
+          //  bateria.sprite = bateriaConectadaSpr;
+        } //else if(!bateriaConectada)
         {
-            bateria.sprite = bateriaDesconectada;
+            //bateria.sprite = bateriaDesconectada;
         }
     }
-    void OnMouseDown()
-    {
-        Debug.Log("Bateria conectada");
-        colliderBateria.enabled = false;
-        bateriaConectada = true;       
-    }
+    //void OnMouseDown()
+    //{
+        //Debug.Log("Bateria conectada");
+        //colliderBateria.enabled = false;
+        //bateriaConectada = true;       
+    //}
 }

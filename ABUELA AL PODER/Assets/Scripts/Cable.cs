@@ -12,26 +12,26 @@ public class Cable : MonoBehaviour
 
     private void Update()
     {
-        if (cableEmpalmado)
+        //if (cableEmpalmado)
         {
-            cable.sprite = cableEmpalmadoSpr;
+            //    cable.sprite = cableEmpalmadoSpr;
         }
-        else if (!cableEmpalmado)
+        //else if (!cableEmpalmado)
         {
-            cable.sprite = cableNoEmpalmado;
+            //  cable.sprite = cableNoEmpalmado;
         }
     }
     private void OnMouseDown()
     {
-        if (GameObject.Find("Bateria").GetComponent<Bateria>().bateriaConectada)
+        //if (GameObject.Find("Bateria").GetComponent<Bateria>().bateriaConectada)
         {
-            GameController.copia.RestaVida();
+            //  GameController.copia.RestaVida();
         }
-        else if(!GameObject.Find("Bateria").GetComponent<Bateria>().bateriaConectada)
+        //else if(!GameObject.Find("Bateria").GetComponent<Bateria>().bateriaConectada)
         {
-            Debug.Log("Cable empalmado");
-            cableEmpalmado = true;
-            colliderCable.enabled = false;
+            //  Debug.Log("Cable empalmado");
+            //cableEmpalmado = true;
+            //colliderCable.enabled = false;
         }
 
     }
