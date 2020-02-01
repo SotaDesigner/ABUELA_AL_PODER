@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LLave : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class LLave : MonoBehaviour
     {
         if(collision.CompareTag("Puerta1"))
         {
-            GameController.copia.NextLevel2();
+            SceneManager.LoadScene(2);
         }
     }
 }
