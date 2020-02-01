@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Silla : MonoBehaviour
 {
-    bool _playerCerca = false;
+    public bool _playerCerca = false;
+    public bool sillaArreglada = false;
 
     Rigidbody2D _rb;
     private SpriteRenderer _sillaRota;
@@ -12,8 +13,10 @@ public class Silla : MonoBehaviour
 
     public Collider2D colSillaRota;
     public Collider2D colSillaReparada;
+    public Collider2D colSillaReparadaTigre;
     public Transform player;
     public Transform arriba;
+
 
     //float speed = 5f;
 
@@ -31,12 +34,16 @@ public class Silla : MonoBehaviour
         {
             Reparar();
         }
-        if(GameObject.Find("Player").GetComponent<PlayerController>().sillaArreglada)
+        if(GameObject.Find("SupSilla").GetComponent<SubSilla>().subidoEnSilla)
         {
             _rb.isKinematic = true;
         }
+        else if(!GameObject.Find("SupSilla").GetComponent<SubSilla>().subidoEnSilla)
+        {
+            _rb.isKinematic = false;
+        }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
@@ -51,12 +58,14 @@ public class Silla : MonoBehaviour
             _playerCerca = false;
         }
     }
+
     void Reparar()
     {
         _sillaRota.sprite = sillaReparadaSpr;
-
+        sillaArreglada = true;
         colSillaRota.enabled = false;
         colSillaReparada.enabled = true;
+        colSillaReparadaTigre.enabled = true;
 
         _rb.gravityScale = 5;
     }

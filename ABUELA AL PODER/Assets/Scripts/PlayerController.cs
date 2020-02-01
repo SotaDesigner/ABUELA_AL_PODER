@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D _rb;
     float _ejeX;
     public Transform silla;
-
-    public bool sillaArreglada = false;
     
     //Velocidad de movimiento del players
     public float velocidadMovimiento = 5;
     
     //Rotar al personaje si mira a la derecha o a la izquierda
     bool miraDerecha = true;
+    bool _puedeSubirse = false;
     Animator _anim;
 
     bool puedoUsarBombilla = false;
@@ -39,6 +39,11 @@ public class PlayerController : MonoBehaviour
         {
             GameController.copia.NextLevel1();
         }
+        if(_puedeSubirse && Input.GetKeyDown(KeyCode.W))
+        {
+            transform.position = silla.position;
+        }
+            PoderSubirse();
     }
     
     void GestionAnimaciones()
@@ -56,17 +61,17 @@ public class PlayerController : MonoBehaviour
             miraDerecha = true;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+
+    void PoderSubirse()
     {
-        //if(GameObject.Find("Bombilla").GetComponent<Objeto>().manoOcupada && collision.CompareTag("Lampara"))
-        //{
-        //  puedoUsarBombilla = true;
-        //}
-        if (collision.CompareTag("SubirseSilla") && Input.GetKeyDown(KeyCode.W))
+        if (GameObject.Find("Silla").GetComponent<Silla>()._playerCerca && GameObject.Find("Silla").GetComponent<Silla>().sillaArreglada)
         {
-            transform.position = silla.position;
-            sillaArreglada = true;
-            
+            Debug.Log("estoy");
+            _puedeSubirse = true;
+        }
+        else
+        {
+            _puedeSubirse = false;
         }
     }
 }

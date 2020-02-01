@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LLave : MonoBehaviour
+public class IndicadorScenaIluminada : MonoBehaviour
 {
-    Rigidbody2D _rb;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +14,5 @@ public class LLave : MonoBehaviour
     void Update()
     {
         
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Puerta1"))
-        {
-            GameController.copia.NextLevel2();
-        }
     }
 }

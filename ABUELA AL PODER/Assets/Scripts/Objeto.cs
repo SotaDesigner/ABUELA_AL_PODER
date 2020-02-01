@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Objeto : MonoBehaviour
 {
     bool _playerCerca = false;
     public bool manoOcupada = false;
+    public bool bombillaCogida = false;
     bool _posibleInteractuar = false;
 
     Transform _player;
@@ -28,6 +30,10 @@ public class Objeto : MonoBehaviour
         else if(manoOcupada&&Input.GetKeyDown(KeyCode.E))
         {
             SoltarObjeto();
+        }
+        if(bombillaCogida && GameObject.Find("Lampara").GetComponent<Lampara>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene(1);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,11 +58,13 @@ public class Objeto : MonoBehaviour
         transform.rotation = _player.rotation;
 
         manoOcupada = true;
+        bombillaCogida = true;
     }
     void SoltarObjeto()
     {
         transform.parent = null;
 
         manoOcupada = false;
+        bombillaCogida = false;
     }
 }
