@@ -6,21 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D _rb;
     float ejeX;
-    float ejey;
 
     public float velocidadMovimiento = 5;
 
-    Animator anim;
+    Animator _anim;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ejeX = Input.GetAxis("Horizontal");
     }
 }
