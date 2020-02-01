@@ -7,18 +7,22 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb;
     float _ejeX;
     public Transform silla;
+
+    public bool sillaArreglada = false;
     
     //Velocidad de movimiento del players
     public float velocidadMovimiento = 5;
     
     //Rotar al personaje si mira a la derecha o a la izquierda
     bool miraDerecha = true;
+    Animator _anim;
 
     bool puedoUsarBombilla = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -39,8 +43,9 @@ public class PlayerController : MonoBehaviour
     
     void GestionAnimaciones()
     {
+        _anim.SetFloat("Velocidad", Mathf.Abs(_rb.velocity.x));
 
-        if(_ejeX<0 && miraDerecha)
+        if (_ejeX<0 && miraDerecha)
         {
             transform.Rotate(0, 180, 0);
             miraDerecha = false;
@@ -51,7 +56,7 @@ public class PlayerController : MonoBehaviour
             miraDerecha = true;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //if(GameObject.Find("Bombilla").GetComponent<Objeto>().manoOcupada && collision.CompareTag("Lampara"))
         //{
@@ -59,7 +64,9 @@ public class PlayerController : MonoBehaviour
         //}
         if (collision.CompareTag("SubirseSilla") && Input.GetKeyDown(KeyCode.W))
         {
-            transform.position = Vector2.MoveTowards(_rb.position, silla.position, Time.deltaTime);
+            transform.position = silla.position;
+            sillaArreglada = true;
+            
         }
     }
 }

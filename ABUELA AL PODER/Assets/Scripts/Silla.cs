@@ -6,6 +6,7 @@ public class Silla : MonoBehaviour
 {
     bool _playerCerca = false;
 
+    Rigidbody2D _rb;
     private SpriteRenderer _sillaRota;
     public Sprite sillaReparadaSpr;
 
@@ -20,6 +21,7 @@ public class Silla : MonoBehaviour
     void Start()
     {
         _sillaRota = GetComponent<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,10 @@ public class Silla : MonoBehaviour
         {
             Reparar();
         }
-        
+        if(GameObject.Find("Player").GetComponent<PlayerController>().sillaArreglada)
+        {
+            _rb.isKinematic = true;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -52,6 +57,8 @@ public class Silla : MonoBehaviour
 
         colSillaRota.enabled = false;
         colSillaReparada.enabled = true;
+
+        _rb.gravityScale = 5;
     }
     
 }
