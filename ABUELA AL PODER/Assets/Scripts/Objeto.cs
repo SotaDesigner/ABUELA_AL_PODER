@@ -12,6 +12,7 @@ public class Objeto : MonoBehaviour
     public bool emiteParticulas = false;
     bool _posibleInteractuar = false;
     public GameObject textoAyuda;
+    public LlaveInglesa scriptLlaveI;
 
     Transform _player;
     Transform _mano;
@@ -26,6 +27,7 @@ public class Objeto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bombillaCogida = scriptLlaveI.ObjetoCogido;
         if(_playerCerca && !manoOcupada && Input.GetKeyDown(KeyCode.E))
         {
             CogerObjeto();
@@ -40,11 +42,13 @@ public class Objeto : MonoBehaviour
         }
         if (!bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
         {
+            Debug.Log("Activar manguera");
             emiteParticulasLow = true;
-        }
-        if (bombillaCogida && GameObject.Find("MangueraHigh").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
-        {
 
+        }
+        else if (bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
+        {
+            
             emiteParticulas = true;
         }
     }

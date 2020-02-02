@@ -9,22 +9,26 @@ public class Manguera : MonoBehaviour
     public GameObject mangueraLow;
     public GameObject mangueraHigh;
 
-    ParticleSystem _particulasSuelo;
+    public GameObject _particulasSueloLow;
+
     private void Start()
     {
-        _particulasSuelo = GetComponent<ParticleSystem>();
+        //_particulasSuelo = GetComponentInChildren<ParticleSystem>();
+        
     }
     private void Update()
     {
-        if(GameObject.Find("Manguera").GetComponent<Objeto>().emiteParticulasLow)
+        if (mangueraLow.GetComponent<Objeto>().emiteParticulasLow)
         {
-            _particulasSuelo.Play();
+            Debug.Log("!");
+            
+            _particulasSueloLow.SetActive(true);
         }
-        if (GameObject.Find("Manguera").GetComponent<Objeto>().emiteParticulas)
+        if (mangueraLow.GetComponent<Objeto>().emiteParticulas)
         {
+            Debug.Log("pp");
             mangueraHigh.SetActive(true);
             mangueraLow.SetActive(false);
-            _particulasSuelo.Play();
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
