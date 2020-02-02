@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
     {
         if (GameObject.Find("Silla").GetComponent<Silla>()._playerCerca && GameObject.Find("Silla").GetComponent<Silla>().sillaArreglada)
         {
-            Debug.Log("estoy");
             _puedeSubirse = true;
         }
         else
