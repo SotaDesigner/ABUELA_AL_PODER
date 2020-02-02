@@ -99,7 +99,7 @@ public class Manguera : MonoBehaviour
     }
     void DesactivarTexto()
     {
-        panelDeTextoGato2.SetActive(true);
+        panelDeTextoGato2.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
