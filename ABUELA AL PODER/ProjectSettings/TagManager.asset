@@ -10,6 +10,7 @@ TagManager:
   - Lampara
   - Puerta1
   - Manguera
+  - Agua
   layers:
   - Default
   - TransparentFX
