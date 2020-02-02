@@ -12,14 +12,16 @@ public class Objeto : MonoBehaviour
     public bool emiteParticulas = false;
     bool _posibleInteractuar = false;
     public GameObject textoAyuda;
-    public LlaveInglesa scriptLlaveI;
 
     Transform _player;
     Transform _mano;
-
+    AudioSource _mAs;
+    public AudioClip clip;
+    public AudioClip colocarClip;
     // Start is called before the first frame update
     void Start()
     {
+        _mAs = GetComponent<AudioSource>();
         _mano = GameObject.Find("ManoDerecha").transform;
         _player = GameObject.Find("Player").transform;
     }
@@ -27,7 +29,6 @@ public class Objeto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bombillaCogida = scriptLlaveI.ObjetoCogido;
         if(_playerCerca && !manoOcupada && Input.GetKeyDown(KeyCode.E))
         {
             CogerObjeto();
@@ -38,8 +39,11 @@ public class Objeto : MonoBehaviour
         }
         if(bombillaCogida && GameObject.Find("Lampara").GetComponent<Lampara>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
         {
-            SceneManager.LoadScene(1);
+            _mAs.clip = colocarClip;
+            _mAs.Play();
+            Invoke("CargarEscenaSiguiente", 1f);
         }
+
         if (!bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Activar manguera");
@@ -51,6 +55,10 @@ public class Objeto : MonoBehaviour
             
             emiteParticulas = true;
         }
+    }
+    void CargarEscenaSiguiente()
+    {
+        SceneManager.LoadScene(3);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -70,6 +78,8 @@ public class Objeto : MonoBehaviour
     }
     void CogerObjeto()
     {
+        _mAs.clip = clip;
+        _mAs.Play();
         transform.parent = _mano;
 
         transform.localPosition = Vector3.zero;

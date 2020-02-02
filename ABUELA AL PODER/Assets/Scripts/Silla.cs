@@ -8,6 +8,9 @@ public class Silla : MonoBehaviour
     public bool sillaArreglada = false;
 
     Rigidbody2D _rb;
+    AudioSource _mAs;
+    public AudioClip clip;
+
     private SpriteRenderer _sillaRota;
     public Sprite sillaReparadaSpr;
 
@@ -26,6 +29,7 @@ public class Silla : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _mAs = GetComponent<AudioSource>();
         _sillaRota = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -35,7 +39,7 @@ public class Silla : MonoBehaviour
     {
         if(_playerCerca && Input.GetKeyDown(KeyCode.Q))
         {
-            Reparar();
+            SonidoYreparar();
         }
         if(GameObject.Find("SupSilla").GetComponent<SubSilla>().subidoEnSilla)
         {
@@ -76,6 +80,12 @@ public class Silla : MonoBehaviour
 
     }
 
+    void SonidoYreparar()
+    {
+        _mAs.clip = clip;
+        _mAs.Play();
+        Invoke("Reparar", 1f);
+    }
     void Reparar()
     {
         _sillaRota.sprite = sillaReparadaSpr;

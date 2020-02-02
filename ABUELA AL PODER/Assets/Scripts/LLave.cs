@@ -22,7 +22,7 @@ public class LLave : MonoBehaviour
     {
         if(collision.CompareTag("Puerta1"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
         }
     }
 }

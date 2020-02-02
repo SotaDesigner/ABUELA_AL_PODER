@@ -12,10 +12,13 @@ public class ObjetoInteractuable : MonoBehaviour
     public Collider2D objetoEscondidoCol;
     public GameObject textoActibable;
     Collider2D _mC;
+    AudioSource _mAs;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
     {
+        _mAs = GetComponent<AudioSource>();
         _sr = GetComponent<SpriteRenderer>();
         _mC = GetComponent<Collider2D>();
     }
@@ -46,6 +49,8 @@ public class ObjetoInteractuable : MonoBehaviour
     }
     void Interactuar()
     {
+        _mAs.clip = clip;
+        _mAs.Play();
         _sr.sprite = cambio;
         objetoEscondido.enabled = true;
         objetoEscondidoCol.enabled = true;
