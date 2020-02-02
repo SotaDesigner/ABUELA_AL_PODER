@@ -7,15 +7,27 @@ public class ActivarParticulas : MonoBehaviour
     public GameObject sistemaParticulas;
     bool tocandoPlayer;
     public Collider2D colApagaFuego;
+    AudioSource _mAs;
+    public AudioClip clip;
 
+    private void Start()
+    {
+        _mAs = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && tocandoPlayer)
         {
-            sistemaParticulas.SetActive(true);
-            colApagaFuego.enabled = true;
-            Invoke("ApagarSistemaDeParticulas", 2f);
+            _mAs.clip = clip;
+            _mAs.Play();
+            Invoke("ActivarParticulasUno", 1f);
         }
+    }
+    void ActivarParticulasUno()
+    {
+        sistemaParticulas.SetActive(true);
+        colApagaFuego.enabled = true;
+        Invoke("ApagarSistemaDeParticulas", 2.5f);
     }
     void ApagarSistemaDeParticulas()
     {

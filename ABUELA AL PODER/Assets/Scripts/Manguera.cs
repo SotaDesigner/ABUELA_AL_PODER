@@ -52,24 +52,39 @@ public class Manguera : MonoBehaviour
     public GameObject panelDeTextoGato;
     public GameObject panelDeTextoGato2;
     public GameObject llave;
+    AudioSource _mAs;
+    public AudioClip clip;
+    public AudioClip clipReparar;
 
     private void Start()
     {
-        
+        _mAs = GetComponent<AudioSource>();   
     }
     private void Update()
     {
         if (tocandoPlayer && Input.GetKey(KeyCode.Q) && !llave.GetComponent<Objeto>().bombillaCogida)
         {
-            sistemaParticulas.SetActive(true);
-            panelDeTextoGato.SetActive(true);
-            Invoke("ApagarSistemaDeParticulas", 4f);
+            _mAs.clip = clip;
+            _mAs.Play();
+            Invoke("EncenderSistemaP", 1f);
         }
         if(tocandoPlayer && Input.GetKey(KeyCode.Q) && llave.GetComponent<Objeto>().bombillaCogida)
         {
-            MangueraHigh.SetActive(true);
-            Destroy(gameObject);
+            _mAs.clip = clipReparar;
+            _mAs.Play();
+            Invoke("CambioManguera", 2f);
         }
+    }
+    void EncenderSistemaP()
+    {
+        sistemaParticulas.SetActive(true);
+        panelDeTextoGato.SetActive(true);
+        Invoke("ApagarSistemaDeParticulas", 2f);
+    }
+    void CambioManguera()
+    {
+        MangueraHigh.SetActive(true);
+        Destroy(gameObject);
     }
     void ApagarSistemaDeParticulas()
     {

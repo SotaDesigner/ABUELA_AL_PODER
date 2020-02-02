@@ -422,7 +422,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mateo
+  m_Text: Marco
 --- !u!222 &493024593
 CanvasRenderer:
   m_ObjectHideFlags: 0
