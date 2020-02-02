@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     int vidas = 2;
 
     //Sprite que se pone en pantalla cuando recibo daño
-    public SpriteRenderer dañado;
+    public GameObject spriteR;
 
     public static GameController copia;
 
@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
     {
         if (vidas > 0) vidas--;
         Debug.Log("Has perdido una vida");
+        spriteR.GetComponent<SpriteRenderer>().color = Color.red;
         if(vidas<1)
         {
             Debug.Log("Anda que morir en este juego... Verguenza me daria :D");

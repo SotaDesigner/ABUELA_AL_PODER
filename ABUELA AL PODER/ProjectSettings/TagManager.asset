@@ -11,6 +11,7 @@ TagManager:
   - Puerta1
   - Manguera
   - Agua
+  - Fuego
   layers:
   - Default
   - TransparentFX

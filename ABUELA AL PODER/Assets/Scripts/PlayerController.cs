@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D _rb;
+    SpriteRenderer _mS;
+    public int vida = 2;
     float _ejeX;
     public Transform silla;
     
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+        _mS = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -73,6 +76,23 @@ public class PlayerController : MonoBehaviour
         else
         {
             _puedeSubirse = false;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Fuego"))
+        {
+            Debug.Log("Chocando");
+            if (vida < 1) SceneManager.LoadScene(0);
+            vida--;
+            _mS.color = Color.red;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fuego"))
+        {
+            _mS.color = Color.white;
         }
     }
 }
