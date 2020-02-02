@@ -44,17 +44,17 @@ public class Objeto : MonoBehaviour
             Invoke("CargarEscenaSiguiente", 1f);
         }
 
-        if (!bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Activar manguera");
-            emiteParticulasLow = true;
+        //if (!bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    Debug.Log("Activar manguera");
+        //    emiteParticulasLow = true;
 
-        }
-        else if (bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
-        {
+        //}
+        //else if (bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
+        //{
             
-            emiteParticulas = true;
-        }
+        //    emiteParticulas = true;
+        //}
     }
     void CargarEscenaSiguiente()
     {

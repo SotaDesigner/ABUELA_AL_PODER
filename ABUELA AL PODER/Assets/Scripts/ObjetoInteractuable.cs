@@ -11,6 +11,7 @@ public class ObjetoInteractuable : MonoBehaviour
     private SpriteRenderer _sr;
     public Collider2D objetoEscondidoCol;
     public GameObject textoActibable;
+    public GameObject textoGato;
     Collider2D _mC;
     AudioSource _mAs;
     public AudioClip clip;
@@ -29,7 +30,13 @@ public class ObjetoInteractuable : MonoBehaviour
         if(_playerCerca && Input.GetKeyDown(KeyCode.Q))
         {
             Interactuar();
+            textoGato.SetActive(true);
+            Invoke("DesactivarTexto", 2f);
         }
+    }
+    void DesactivarTexto()
+    {
+        textoGato.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
