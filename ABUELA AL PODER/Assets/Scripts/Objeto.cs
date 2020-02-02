@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Objeto : MonoBehaviour
 {
-    bool _playerCerca = false;
+    public bool _playerCerca = false;
     public bool manoOcupada = false;
     public bool bombillaCogida = false;
     public bool emiteParticulasLow = false;
