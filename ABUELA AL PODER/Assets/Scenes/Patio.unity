@@ -396,6 +396,7 @@ MonoBehaviour:
   emiteParticulasLow: 0
   emiteParticulas: 0
   textoAyuda: {fileID: 0}
+  scriptLlaveI: {fileID: 0}
 --- !u!61 &268832299
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1006,6 +1007,7 @@ MonoBehaviour:
   emiteParticulasLow: 0
   emiteParticulas: 0
   textoAyuda: {fileID: 0}
+  scriptLlaveI: {fileID: 1793972834}
 --- !u!114 &365420767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,6 +1535,7 @@ MonoBehaviour:
   emiteParticulasLow: 0
   emiteParticulas: 0
   textoAyuda: {fileID: 0}
+  scriptLlaveI: {fileID: 0}
 --- !u!1 &650810951
 GameObject:
   m_ObjectHideFlags: 0
@@ -13228,13 +13231,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793972829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e5faf4a19ff15459807fd4c38493b5, type: 3}
+  m_Script: {fileID: 11500000, guid: f82dfd6045f1e74409e9ba4cb0f15bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tocandoPlayer: 0
-  mangueraLow: {fileID: 0}
-  mangueraHigh: {fileID: 0}
-  _particulasSueloLow: {fileID: 0}
+  ObjetoCogido: 0
 --- !u!114 &1793972835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13252,6 +13252,7 @@ MonoBehaviour:
   emiteParticulasLow: 0
   emiteParticulas: 0
   textoAyuda: {fileID: 0}
+  scriptLlaveI: {fileID: 1793972834}
 --- !u!1 &1794570201
 GameObject:
   m_ObjectHideFlags: 0
