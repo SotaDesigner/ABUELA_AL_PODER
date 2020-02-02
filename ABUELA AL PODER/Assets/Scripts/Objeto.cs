@@ -8,6 +8,8 @@ public class Objeto : MonoBehaviour
     bool _playerCerca = false;
     public bool manoOcupada = false;
     public bool bombillaCogida = false;
+    public bool emiteParticulasLow = false;
+    public bool emiteParticulas = false;
     bool _posibleInteractuar = false;
 
     Transform _player;
@@ -34,6 +36,15 @@ public class Objeto : MonoBehaviour
         if(bombillaCogida && GameObject.Find("Lampara").GetComponent<Lampara>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
         {
             SceneManager.LoadScene(1);
+        }
+        if (!bombillaCogida && GameObject.Find("MangueraLow").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
+        {
+            emiteParticulasLow = true;
+        }
+        if (bombillaCogida && GameObject.Find("MangueraHigh").GetComponent<Manguera>().tocandoPlayer && Input.GetKeyDown(KeyCode.Q))
+        {
+
+            emiteParticulas = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
