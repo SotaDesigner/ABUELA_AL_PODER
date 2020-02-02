@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 1355285399579724405}
   - component: {fileID: 1355285399579724403}
   - component: {fileID: 1355285399579724400}
-  - component: {fileID: 1355285399579724402}
   - component: {fileID: 1355285399579724407}
+  - component: {fileID: 3222648138866611325}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -198,32 +198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   silla: {fileID: 0}
   velocidadMovimiento: 2.5
---- !u!61 &1355285399579724402
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355285399579724401}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.855}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.82, y: 3.71}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.82, y: 3.71}
-  m_EdgeRadius: 0
 --- !u!95 &1355285399579724407
 Animator:
   serializedVersion: 3
@@ -243,3 +217,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &3222648138866611325
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355285399579724401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000017881393, y: 1.855}
+  m_Size: {x: 1.5336636, y: 3.71}
+  m_Direction: 0

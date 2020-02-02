@@ -11,6 +11,7 @@ public class Objeto : MonoBehaviour
     public bool emiteParticulasLow = false;
     public bool emiteParticulas = false;
     bool _posibleInteractuar = false;
+    public GameObject textoAyuda;
 
     Transform _player;
     Transform _mano;
@@ -52,6 +53,7 @@ public class Objeto : MonoBehaviour
         if(collision.transform.CompareTag("Player"))
         {
             _playerCerca = true;
+            textoAyuda.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -59,6 +61,7 @@ public class Objeto : MonoBehaviour
         if(collision.transform.CompareTag("Player"))
         {
             _playerCerca = false;
+            textoAyuda.SetActive(false);
         }
     }
     void CogerObjeto()

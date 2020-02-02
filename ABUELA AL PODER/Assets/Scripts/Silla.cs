@@ -11,6 +11,9 @@ public class Silla : MonoBehaviour
     private SpriteRenderer _sillaRota;
     public Sprite sillaReparadaSpr;
 
+    public GameObject textoAyudaReparar;
+    public GameObject textoAyudaSubir;
+
     public Collider2D colSillaRota;
     public Collider2D colSillaReparada;
     public Collider2D colSillaReparadaTigre;
@@ -49,14 +52,28 @@ public class Silla : MonoBehaviour
         {
             _playerCerca = true;
         }
-        
+        if(collision.CompareTag("Player") && !sillaArreglada)
+        {
+            textoAyudaReparar.SetActive(true);
+        }
+        if (collision.CompareTag("Player") && sillaArreglada)
+        {
+            textoAyudaSubir.SetActive(true);
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             _playerCerca = false;
+            textoAyudaReparar.SetActive(false);
         }
+        if (collision.CompareTag("Player") && sillaArreglada)
+        {
+            textoAyudaSubir.SetActive(false);
+        }
+
     }
 
     void Reparar()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjetoInteractuable : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class ObjetoInteractuable : MonoBehaviour
     public SpriteRenderer objetoEscondido;
     private SpriteRenderer _sr;
     public Collider2D objetoEscondidoCol;
+    public GameObject textoActibable;
+    Collider2D _mC;
 
     // Start is called before the first frame update
     void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
+        _mC = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,7 @@ public class ObjetoInteractuable : MonoBehaviour
         if(collision.transform.CompareTag("Player"))
         {
             _playerCerca = true;
+            textoActibable.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -36,6 +41,7 @@ public class ObjetoInteractuable : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             _playerCerca = false;
+            textoActibable.SetActive(false);
         }
     }
     void Interactuar()
@@ -43,5 +49,6 @@ public class ObjetoInteractuable : MonoBehaviour
         _sr.sprite = cambio;
         objetoEscondido.enabled = true;
         objetoEscondidoCol.enabled = true;
+        _mC.enabled = false;
     }
 }
