@@ -14180,10 +14180,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1793972831}
   - component: {fileID: 1793972833}
+  - component: {fileID: 1793972832}
   - component: {fileID: 1793972830}
   - component: {fileID: 1793972835}
   - component: {fileID: 1793972834}
-  - component: {fileID: 1793972832}
   - component: {fileID: 1793972836}
   m_Layer: 0
   m_Name: LLaveInglesa
@@ -14292,7 +14292,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f528ab20010b42049b607f16b6f48b4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
