@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Fuego : MonoBehaviour
 {
+    float vida = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Agua"))
         {
-            transform.localScale = new Vector3(transform.localScale.x - 0.5f, transform.localScale.y - 0.5f, transform.localScale.z);
+            Debug.Log("colision");
+            vida -= 0.5f;
+            transform.localScale = new Vector3(vida, vida, vida);
         }
     }
     private void Update()
     {
-        if(transform.localScale == new Vector3(0,0,0))
+        if(vida == 0)
         {
             Destroy(gameObject);
         }
